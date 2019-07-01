@@ -51,7 +51,7 @@ class GameScreen extends Scene{
 
         if(this.gameWorld.gameObjects[1].isPressed == true){
           player.velocity = new Vector2d(0, -5);   //for up button
-          playerLayer.angle = 0;
+          player.angle = 0;
         }
         if(this.gameWorld.gameObjects[2].isPressed == true){
           player.velocity = new Vector2d(0, 5);      //for down button
