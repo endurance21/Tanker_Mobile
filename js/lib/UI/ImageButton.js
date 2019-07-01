@@ -11,18 +11,18 @@ class ImageButton{
         this.layer.scene.uiManager.addButton(this);
     }
     render(){
-        
+
         let image = this.buttonUp;
         if(this.isPressed) {
             image = this.buttonDown;
             this.layer.context.fillStyle = "white";
         }
         if(image)
-            this.layer.context.drawImage(image, 
+            this.layer.context.drawImage(image,
                 this.position.x, this.position.y,
                 this.width, this.height);
         else{
-            this.layer.context.fillRect( 
+            this.layer.context.fillRect(
                 this.position.x, this.position.y,
                 this.width, this.height);
         }
@@ -31,5 +31,9 @@ class ImageButton{
     }
     onClick(){
 
+    }
+
+    update(){
+      
     }
 }
