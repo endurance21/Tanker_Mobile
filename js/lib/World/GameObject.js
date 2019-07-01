@@ -15,7 +15,7 @@ class GameObject{
     update(){
         this.velocity = this.velocity.scale(this.acceleration.x, this.acceleration.y);
         this.position = this.position.add(this.velocity.scale(1, 1));
-        this.anchorPoint = new Vector2d(this.position.x + this.width , this.position.y + this.height);
+        this.anchorPoint = new Vector2d(this.position.x + this.width /2, this.position.y + this.height/2);
     }
     render(){
         this.layer.context.save();
