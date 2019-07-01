@@ -22,7 +22,7 @@ class GameObject{
         this.layer.context.translate(this.anchorPoint.x , this.anchorPoint.y);
         this.layer.context.rotate(this.angle);
         this.layer.context.translate(-this.anchorPoint.x , -this.anchorPoint.y);
-        this.layer.context.translate(this.position.x,this.position.y);
+        this.layer.context.translate(0,0);
         this.layer.context.drawImage(this.sprite, this.position.x, this.position.y, this.width, this.height);
         this.layer.context.restore();
     }
