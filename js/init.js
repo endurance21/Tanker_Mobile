@@ -5,9 +5,9 @@ const GAME_WIDTH = 480;
 
 const GRAVITY = 0.2;
 const PI = Math.PI;
-const Up = new Vector2d(0,-1);
-const Down = new Vector2d(0,1);
-const Right = new Vector2d(1,0);
-const Left = new Vector2d(-1,0);
+// const Up = new Vector2d(0,-1);
+// const Down = new Vector2d(0,1);
+// const Right = new Vector2d(1,0);
+// const Left = new Vector2d(-1,0);
 
  
