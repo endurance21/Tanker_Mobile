@@ -21,13 +21,17 @@ class GameScreen extends Scene{
         let downButton = new ImageButton(uiLayer, button1u, button1d, new Vector2d(80, 3/4 * GAME_HEIGHT + 80),  40, 40);
         let leftButton = new ImageButton(uiLayer, button1u, button1d, new Vector2d(40, 3/4 * GAME_HEIGHT + 40),  40, 40);
         let rightButton = new ImageButton(uiLayer, button1u, button1d, new Vector2d(120, 3/4 * GAME_HEIGHT + 40),  40, 40);
+        let fireButton = new ImageButton(uiLayer, button1u, button1d, new Vector2d(240, 3/4 * GAME_HEIGHT + 40),  40, 40);
 
         this.gameWorld.addGameObject(upButton);
         this.gameWorld.addGameObject(downButton);
         this.gameWorld.addGameObject(leftButton);
         this.gameWorld.addGameObject(rightButton);
+        this.gameWorld.addGameObject(fireButton);
 
         let player = this.gameWorld.gameObjects[0];
+        player.addBullet();
+        this.gameWorld.addGameObject(player.bullets[0]);
 
         upButton.onClick = ()=>{
          player.velocity = new Vector2d(0, -5);
@@ -64,6 +68,9 @@ class GameScreen extends Scene{
         if(this.gameWorld.gameObjects[4].isPressed == true){
           player.velocity = new Vector2d(5, 0);       //for right button
           player.angle = 1 * PI/2;
+        }
+        if (this.gameWorld.gameObjects[5].isPressed == true){
+          player.fire();
         }
 
     }
