@@ -36,6 +36,23 @@ class SceneManager{
                 currentScene.uiManger.handleClick(e);
             });
         }
+        if (currentScene == SceneManager.scenes[3]) {
+          currentScene.div.addEventListener("mousedown",(e) => {
+              currentScene.uiManager.handleMouseDown(e);
+          });
+
+          currentScene.div.addEventListener("mousemove",(e) => {
+              currentScene.uiManager.handleMouseMove(e);
+          });
+
+          currentScene.div.addEventListener("mouseup",(e) => {
+              currentScene.uiManager.handleMouseUp(e);
+          });
+        }else {
+          currentScene.div.addEventListener("click",(e) => {
+              currentScene.uiManager.handleClick(e);
+          });
+        }
         currentScene.div.addEventListener("mousedown",(e) => {
             currentScene.uiManager.handleClick(e);
             open = true;

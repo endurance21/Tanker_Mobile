@@ -1,9 +1,16 @@
-let aspectRatio = window.innerWidth / window.innerHeight; 
+let aspectRatio = window.innerWidth / window.innerHeight;
 aspectRatio = (aspectRatio <= 1) ? aspectRatio : (9 / 16);
 const GAME_HEIGHT = innerHeight*2;
 const GAME_WIDTH = innerWidth*2;
-let open = false ;
 
+const GRAVITY = 0.2;
+const PI = Math.PI;
+// const Up = new Vector2d(0,-1);
+// const Down = new Vector2d(0,1);
+// const Right = new Vector2d(1,0);
+// const Left = new Vector2d(-1,0);
+
+ 
 var ImageLoader = new ImageLoaderClass();
 var dirt = ImageLoader.load("assets/images/dirt.png");
 dirt.setAttribute("class","Ground");
@@ -26,7 +33,6 @@ var Sprites = [null,dirt,grass,sand,treeLarge,treeSmall];
 // },1000);
 
 
-const GRAVITY = 0.2;
 
 
 // function Camera(x,y,map, width, height) {
@@ -84,3 +90,4 @@ function handleKeyUp(e){
 
 window.addEventListener("keydown", handleKeyDown);
 window.addEventListener("keyup", handleKeyUp);
+

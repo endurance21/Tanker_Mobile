@@ -32,5 +32,7 @@ class ImageButton{
     onClick(){
 
     }
-    update(){}
-}
+
+    update(){
+      
+    }
