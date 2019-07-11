@@ -7,10 +7,10 @@ class SceneManager{
         SceneManager.sceneCount++;
 
         return index;
-    }   
+    }
     static getScene(index){
         return this.scenes[index];
-    } 
+    }
     static setCurrentScene(scene){
         if( SceneManager.getCurrentScene())
         SceneManager.getCurrentScene().hide();
@@ -25,19 +25,20 @@ class SceneManager{
         let currentScene = SceneManager.getCurrentScene();
         if(currentScene){
             currentScene.update();
-            currentScene.render(); 
+            currentScene.render();
         }
         requestAnimationFrame(SceneManager.gameLoop);
     }
     static addEvents(){
         let currentScene = SceneManager.getCurrentScene();
         if(currentScene){
-            currentScene.div.removeEventListener("click", (e) => {
+            currentScene.div.removeEventListener("mousedown", (e) => {
                 currentScene.uiManger.handleClick(e);
             });
         }
-        currentScene.div.addEventListener("click",(e) => {
+        currentScene.div.addEventListener("mousedown",(e) => {
             currentScene.uiManager.handleClick(e);
+            open = true;
         });
     }
 }
