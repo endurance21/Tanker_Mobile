@@ -12,9 +12,11 @@ class GameObject{
     update(){
         this.position = this.position.add(this.velocity.scale(1, 1));
         this.velocity = this.velocity.add(this.acceleration.scale(1, 1));
+
     } 
     render(){
         this.fillStyle = "black";
+        this.layer.context.clearRect(0, 0,GAME_WIDTH,GAME_HEIGHT);
         this.layer.context.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }

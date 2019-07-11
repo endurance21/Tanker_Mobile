@@ -38,7 +38,7 @@ class SceneManager{
         }
         currentScene.div.addEventListener("mousedown",(e) => {
             currentScene.uiManager.handleClick(e);
-            console.log("Hello");
+            open = true;
         });
     }
 }
