@@ -1,6 +1,3 @@
-let logoScreen = new LogoScreen();
-let loadingSceeen = new LoadingScreen();
-let homeScreen = new HomeScreen();
 let gameScreen = new GameScreen();
 
 // window.onload = () => {
@@ -22,3 +19,14 @@ let gameScreen = new GameScreen();
 // }
 
 SceneManager.setCurrentScene(gameScreen);
+ 
+ 
+//  window.setInterval(()=>{
+//     if(open)
+//   //  loadJSON();
+//   } ,1000);
+window.onload = () => {
+
+    SceneManager.setCurrentScene(gameScreen);
+}
+

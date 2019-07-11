@@ -12,6 +12,7 @@ class GameScreen extends Scene{
 
         this.addNewLayers(4);
         this.gameWorld = new World();
+
         this.gameWorld.addGameObject( new Tank(this.getLayer(2), new Vector2d(50, 427), 60, 60, playerTank));
       //  this.gameWorld.addGameObject(new GameObject(this.getLayer(1), new Vector2d(100, 50), 50, 400));
 
@@ -83,6 +84,62 @@ class GameScreen extends Scene{
 
         background.canvas.style.backgroundColor = "white";
         playerLayer.context.clearRect(0, 0, playerLayer.canvas.width, playerLayer.canvas.height);
+
+        let player = this.gameWorld.gameObjects[0];
+        this.gameWorld.addGameObject(player);
+        var  array = [];
+        for(let i  = 0; i<2500; i++)
+        array[i] = i;
+        var mapdata = [
+            2,
+            50,
+            50,
+            50,
+            array
+        ];
+
+        this.map = new Map(...mapdata);
+        this.camera = new Camera(new Vector2d(0,0), GAME_WIDTH/2, GAME_HEIGHT/2, this.map);
+        player.following = this.camera;
+
+    }
+
+    update(){
+        this.gameWorld.update();
+      let player = this.gameWorld.gameObjects[0];
+        this.camera.follow(player);
+    }
+
+    render(){
+        let currentSprite = Sprites[1];
+
+        for(let i = 0; i< this.map.layer; i++){
+         let layer = this.getLayer(i*2);
+        
+         layer.context.clearRect(0, 0, GAME_WIDTH/2, GAME_HEIGHT/2);
+        
+    
+        for(let j = 0; j<this.map.tiles.length; j++){
+          let tile  = this.map.tiles[j];
+          if(tile.position.x - this.camera.position.x <= this.camera.width)
+           if(tile.position.y - this.camera.position.y <= this.camera.height){
+            if(i == 1){
+            if(this.map.tiles[j].index%6==0){
+            currentSprite = Sprites[5];
+            layer.context.drawImage(currentSprite, tile.position.x - this.camera.position.x,  tile.position.y-  this.camera.position.y, tile.width, tile.height);
+            }
+            }
+            else {
+            currentSprite  = Sprites[this.map.tiles[j].spriteValue];
+            layer.context.drawImage(currentSprite, tile.position.x - this.camera.position.x,  tile.position.y-  this.camera.position.y, tile.width, tile.height);
+
+            }
+
+
+          }
+        }
+       }
+
         this.gameWorld.render();
     }
 

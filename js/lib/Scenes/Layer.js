@@ -4,8 +4,8 @@ class Layer{
         this.div = document.createElement("DIV");
         this.div.className = "Layer";
         this.canvas = document.createElement("CANVAS");
-        this.canvas.style.height = "100vh";
-        this.canvas.style.width = `${aspectRatio * 100}vh`;
+        this.canvas.style.border = "2px solid blue";
+        // this.canvas.style.width = `${aspectRatio * 100}vh`;
 
         this.canvas.className = "LayerCanvas";
         this.canvas.width = width;

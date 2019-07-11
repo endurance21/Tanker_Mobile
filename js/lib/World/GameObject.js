@@ -25,5 +25,6 @@ class GameObject{
         this.layer.context.translate(0,0);
         this.layer.context.drawImage(this.sprite, this.position.x, this.position.y, this.width, this.height);
         this.layer.context.restore();
-    }
+
+    } 
 }

@@ -32,7 +32,7 @@ class SceneManager{
     static addEvents(){
         let currentScene = SceneManager.getCurrentScene();
         if(currentScene){
-            currentScene.div.removeEventListener("click", (e) => {
+            currentScene.div.removeEventListener("mousedown", (e) => {
                 currentScene.uiManger.handleClick(e);
             });
         }
@@ -53,6 +53,10 @@ class SceneManager{
               currentScene.uiManager.handleClick(e);
           });
         }
+        currentScene.div.addEventListener("mousedown",(e) => {
+            currentScene.uiManager.handleClick(e);
+            open = true;
+        });
     }
 }
 
